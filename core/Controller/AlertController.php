@@ -18,6 +18,7 @@ class AlertController
 	public const POST_DEL     = 5;
 	public const POST_ERR     = 6;
 	public const CAT_DEL      = 7;
+	public const NUM_ADD      = 8;
 
 	/**
 	 * AlertController constructor.
@@ -68,6 +69,9 @@ class AlertController
 				break;
 			case self::CAT_DEL:
 				$this->initAlert('La catégorie a bien été supprimée', 'danger');
+				break;
+			case self::NUM_ADD:
+				$this->initAlert("Votre numéro a été placé en file d'attente", 'success');
 				break;
 		}
 
