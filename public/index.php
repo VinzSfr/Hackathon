@@ -7,7 +7,7 @@ App::load(); // autoloader
 if(isset($_GET['p']) && !(App::getInstance()->alert()->alertPresent())) // si une page est demandée
 	$page = $_GET['p'];
 else // sinon on affiche la page d'accueil
-	$page = 'posts.index';
+	$page = 'home.index';
 
 $page = explode('.', $page); // on sépare l'url grâce aux .
 
