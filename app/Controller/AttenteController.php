@@ -7,12 +7,12 @@ class PostsController extends AppController {
 	public function __construct() {
 		parent::__construct();
 
-		$this->loadModel('Post'); // permet de manipuler la table post
-		$this->loadModel('Category'); // permet de manipuler la table category
+		//$this->loadModel('Post'); // permet de manipuler la table post
+		//$this->loadModel('Category'); // permet de manipuler la table category
 	}
 
 	/**
-	 * Affiche la liste des articles et les alertes
+	 * Affiche la page d'accueil qui permet d'encoder le n° de la borne et la suite de chiffre sur la carte de fidélité.
 	 */
 	public function index() {
 		/*$posts = $this->Post->last(); // récupère tous les posts en partant des derniers
@@ -28,9 +28,9 @@ class PostsController extends AppController {
 	}
 
 	/**
-	 * Affiche la liste des catégories
+	 * Affiche traite la requête et notifie l'utilisateur de la prise en charge de sa demande
 	 */
-	public function category() {
+	public function confirmation() {
 		$categorie = $this->Category->find($_GET['id']); // trouve la catégorie en fonction de l'id
 		if($categorie === false) // Si la catégorie n'existe pas
 			App::getInstance()->alert()->setAlert(App::getInstance()->alert()::NOT_FOUND);
@@ -43,24 +43,17 @@ class PostsController extends AppController {
 	}
 
 	/**
-	 * Génère la vue d'un article
+	 * Vue qui permet d'encoder l'en
 	 */
-	public function show() {
-		$article = $this->Post->findWithCategory($_GET['id']); // affiche les articles appartenant à UNE catégorie
-
-		if($article == false)
+	public function sortie() {
+		$categorie = $this->Category->find($_GET['id']); // trouve la catégorie en fonction de l'id
+		if($categorie === false) // Si la catégorie n'existe pas
 			App::getInstance()->alert()->setAlert(App::getInstance()->alert()::NOT_FOUND);
 
-		// BBCode
-		$article->contenu = App::getInstance()->getBBCode()->dbToBbcode($article->contenu);
 
-		// Date
-		$article->date = $this->getDate()->convertDate($article->date);
-		if(isset($article->date_modif))
-			$article->date_modif = $this->getDate()->convertDate($article->date_modif);
+		$articles = $this->Post->lastByCategory($_GET['id']); // trouve les articles associés
+		$categories = $this->Category->all(); // récupère les catégories
 
-		App::getInstance()->setTitle($article->titre);
-
-		$this->render('posts.show', compact('article'));
+		$this->render('posts.category', compact('articles', 'categories', 'categorie'));
 	}
 }
