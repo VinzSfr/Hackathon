@@ -18,7 +18,7 @@ class MysqlDatabase extends Database {
 
 	private function getPDO() { // retourne un objet PDO
 		if($this->pdo == null) { // si pdo pas encore init
-			$this->pdo = new PDO('mysql:dbname=hotel;host=localhost', 'root', 'root');
+			$this->pdo = new PDO("mysql:dbname=$this->name;host=$this->host", $this->user, $this->pass);
 			$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // affiche les msg d'erreurs
 		}
 
