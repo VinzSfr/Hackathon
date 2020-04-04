@@ -2,10 +2,10 @@
 
 return array(
 
-	"db_user" => "root",
-	"db_pass" => "root",
-	"db_host" => "localhost",
-	"db_name" => "hotel",
+	"db_user" => "",
+	"db_pass" => "",
+	"db_host" => "http://192.168.64.2/phpmyadmin/",
+	"db_name" => "hackathon";
 
 );
 

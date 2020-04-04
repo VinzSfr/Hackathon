@@ -5,8 +5,8 @@ use Core\Config;
 // todo parser les mots anglais, avant les parenthèses, entre guillemets
 // todo controler les champs entrés lors de l'ajout/modif d'un article et les surligner en rouge si pas bien saisis
 class App {
-	public $nomProjet = "Wiki";
-	public $title = "Wiki";
+	public $nomProjet = "Hackathon-NOM";
+	public $title = "NOM";
 	public $css = "css/style.css";
 	private $dbInstance; // instance de la bdd
 	protected $alert;
