@@ -14,7 +14,7 @@ class App {
 
 	private function __construct() {
 
-}
+	}
 
 	public static function getInstance() { // Singleton pour 1 seule instance comme statique mais plus simple à hériter et construire
 		if(is_null(self::$instance)) // si l'instance n'est pas encore définie
