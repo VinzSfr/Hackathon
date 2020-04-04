@@ -7,7 +7,7 @@
             <tbody>
 
 
-<?php foreach($posts as $post): ?>
+<?php /* foreach($posts as $post): ?>
                 <tr>
                     <td>
                         <h2><a href="<?= $post->url; ?>"><?= $post->titre; ?></a></h2>
@@ -18,19 +18,19 @@
                         </p>
                     </td>
                 </tr>
-<?php endforeach; ?>
+<?php endforeach; */ ?>
             </tbody>
         </table>
 
     </div>
 
 	<div class="col-sm-2">
-		<?php foreach($categories as $categorie): ?>
+		<?php /*foreach($categories as $categorie): ?>
 
 			<li><a href="<?= $categorie->url; ?>"><?= $categorie->titre; ?></a></li>
 
-		<?php endforeach; ?>
+		<?php endforeach; */ ?>
 	</div>
 </div>
 
-<?= $pagin->paginateBar(); ?>
+<?php // $pagin->paginateBar(); ?>

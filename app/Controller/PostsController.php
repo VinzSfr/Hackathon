@@ -15,14 +15,14 @@ class PostsController extends AppController {
 	 * Affiche la liste des articles et les alertes
 	 */
 	public function index() {
-		$posts = $this->Post->last(); // récupère tous les posts en partant des derniers
-		$categories =  $this->Category->all(); // récupère toutes les catégories
+		/*$posts = $this->Post->last(); // récupère tous les posts en partant des derniers
+		$categories =  $this->Category->all(); // récupère toutes les catégories*/
 
 		$alert = App::getInstance()->alert();
 
-		$oldPosts = $posts;
+		/*$oldPosts = $posts;
 		$pagin = $this->getPaginate();
-		$posts = $pagin->paginate($oldPosts, $posts);
+		$posts = $pagin->paginate($oldPosts, $posts);*/
 		//compact('posts', 'categories'); // donne ['posts' => $posts, 'categories' => $categories]
 		$this->render('posts.index', compact('posts', 'categories', 'alert', 'pagin')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
 	}

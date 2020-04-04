@@ -9,7 +9,7 @@
 		<!-- Bootstrap core CSS -->
 		<link href="<?= App::getInstance()->css; ?>" rel="stylesheet">
 
-        <?= $jsTextarea; // si on a besoin du js et css bbcode ?>
+        <?php //$jsTextarea; // si on a besoin du js et css bbcode ?>
 	</head>
 
 	<body>
