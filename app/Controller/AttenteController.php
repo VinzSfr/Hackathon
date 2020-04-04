@@ -43,9 +43,24 @@ class PostsController extends AppController {
 	}
 
 	/**
-	 * Vue qui permet d'encoder l'en
+	 * Vue qui permet d'encoder la suite de chiffre correspondant à un utilisateur qui quitte un magasin
 	 */
 	public function sortie() {
+		$categorie = $this->Category->find($_GET['id']); // trouve la catégorie en fonction de l'id
+		if($categorie === false) // Si la catégorie n'existe pas
+			App::getInstance()->alert()->setAlert(App::getInstance()->alert()::NOT_FOUND);
+
+
+		$articles = $this->Post->lastByCategory($_GET['id']); // trouve les articles associés
+		$categories = $this->Category->all(); // récupère les catégories
+
+		$this->render('posts.category', compact('articles', 'categories', 'categorie'));
+	}
+
+	/**
+	 * Vue qui permet de générer
+	 */
+	public function genererSimpleTicket() {
 		$categorie = $this->Category->find($_GET['id']); // trouve la catégorie en fonction de l'id
 		if($categorie === false) // Si la catégorie n'existe pas
 			App::getInstance()->alert()->setAlert(App::getInstance()->alert()::NOT_FOUND);
