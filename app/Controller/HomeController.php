@@ -7,35 +7,39 @@ use App;
 
 class HomeController extends AppController
 {
+	private $donneesPageCourante;
+
 	public function __construct() {
 		parent::__construct();
+	}
 
-		$this->loadModel('Utilisateur'); // charge la table Utilisateur
+	private function Hydrate($titre, $htmlMenu, $fond){
+		$fond = "images/" . $fond . ".jpg";
+
+		$this->donneesPageCourante = [
+			"titre" => $titre,
+			"htmlMenu" => $htmlMenu,
+			"fond" => $fond
+		];
 	}
 
 	public function index() {
-		//$utilisateur = $this->Utilisateur->all(); // récupère la liste de tous les articles
-		//App::getInstance()->alert()->setAlert(App::getInstance()->alert()::NOT_FOUND);
+		$this->Hydrate("Accueil", 0, "accueil");
+		$donneesPageCourante = $this->donneesPageCourante;
 
-		$alert = App::getInstance()->alert();
-
-		$this->render('home.index', compact('alert')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
+		$this->render('home.index', compact('alert', 'donneesPageCourante')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
 	}
 
 	public function magasin() {
-		//$utilisateur = $this->Utilisateur->all(); // récupère la liste de tous les articles
-		//App::getInstance()->alert()->setAlert(App::getInstance()->alert()::NOT_FOUND);
+		$this->Hydrate("Magasin", 1, "store");
+		$donneesPageCourante = $this->donneesPageCourante;
 
-		$alert = App::getInstance()->alert();
-
-		$this->render('home.magasin', compact('alert')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
+		$this->render('home.magasin', compact('alert', 'donneesPageCourante')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
 	}
 
 	public function fileAttente() {
-		//$utilisateur = $this->Utilisateur->all(); // récupère la liste de tous les articles
-		//App::getInstance()->alert()->setAlert(App::getInstance()->alert()::NOT_FOUND);
-
-		$alert = App::getInstance()->alert();
+		$this->Hydrate("File d'attente", 2, "wait");
+		$donneesPageCourante = $this->donneesPageCourante;
 
 		$this->render('home.fileAttente', compact('alert')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
 	}

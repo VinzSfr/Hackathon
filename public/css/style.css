@@ -58,3 +58,7 @@ nav{
 	padding: 5%;
 	background-color: rgba(0, 0, 0, 0.6);
 }
+
+.text-white{
+	text-decoration: underline;
+}

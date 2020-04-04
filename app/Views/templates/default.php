@@ -1,8 +1,3 @@
-<?php
-//todo menu qui chnage selon page
-//todo changer fond écran
-//todo titre page
-?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,13 +23,19 @@
 				<div class="collapse navbar-collapse" id="collapse_Navbar">
 					<ul class="navbar-nav bounceInRight animated ml-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="?p=home.index"><h4 class="text-white"><u>Accueil</u></h4></a>
+							<a class="nav-link" href="?p=home.index">
+								<h4<?php if($donneesPageCourante["idMenu"] == 0) { ?> class="text-white>" <?php } ?>>Accueil</h4>
+							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="?p=home.magasin"><h4>Magasin</h4></a>
+							<a class="nav-link" href="?p=home.magasin">
+								<h4<?php if($donneesPageCourante["idMenu"] == 1) { ?> class="text-white"<?php } ?>>Magasin</h4>
+							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="?p=home.fileAttente"><h4>File d'attente</h4></a>
+							<a class="nav-link" href="?p=home.fileAttente">
+								<h4<?php if($donneesPageCourante["idMenu"] == 2) { ?> class="text-white>" <?php } ?>>File d'attente</h4>
+							</a>
 						</li>
 					</ul>
 				</div>
