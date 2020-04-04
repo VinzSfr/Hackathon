@@ -13,7 +13,7 @@ class Form {
 	protected function surround($html) {
 		return "<{$this->surround}>
 					$html
-				</${$this->surround}>";
+				</{$this->surround}>";
 	}
 
 	protected function getValue($index) {
