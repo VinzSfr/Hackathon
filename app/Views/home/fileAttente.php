@@ -18,34 +18,31 @@
 </div>
 
 </center>
+</header>
 <table class="table table-striped bg-light">
     <thead>
     <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Numéro</th>
+        <th scope="col">Utilisateur</th>
+        <th scope="col">Entrée</th>
+        <th scope="col">Sorti</th>
     </tr>
     </thead>
     <tbody>
-    $jsonobj = '{"Peter":35,"Ben":37,"Joe":43}';
-    $obj = json_decode($jsonobj);
-    foreach($obj as $key => $value) {
-    echo $key . " => " . $value . "<br>";
-    }
+
     <?php
-    $obj = json_decode($jsonobj);
-    foreach ($obj as $key => $value){
+
+    $obj = json_decode($results);
+    foreach ($obj as $key => $value):
         ?>
+
     <tr>
-        <th scope="row"><?= ;?></th>
-        <td><?= $value ;?></td>
-        <td><?= $value ;?></td>
-        <td><?= $value ;?></td>
-        <td><?= $value ;?></td>
+        <td scope="row"><?= $value->{'idTicket'}; ?></td>
+        <td><?= $value->{'fkUser'}; ?></td>
+        <td><?= $value->{'estConfirme'}; ?></td>
+        <td><?= $value->{'estSorti'}; ?></td>
     </tr>
-    <?php
-    } ?>
+
+    <?php endforeach; ?>
     </tbody>
 </table>
-</header>

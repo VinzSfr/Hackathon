@@ -43,7 +43,9 @@ class HomeController extends AppController
 		$this->Hydrate("File d'attente", 2, "wait");
 		$donneesPageCourante = $this->donneesPageCourante;
 
-        $this->render('home.fileAttente', compact('donneesPageCourante')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
+		$results = $this->CallAPI('GET', 'http://bca5bf5c.ngrok.io/api/GetAllTickets', false);
+
+        $this->render('home.fileAttente', compact('donneesPageCourante', 'results')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
 	}
 
 	public function inscriptionFile(){
