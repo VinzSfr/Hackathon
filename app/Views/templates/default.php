@@ -42,6 +42,11 @@
 								<h4<?php if($donneesPageCourante["idMenu"] == 2) { ?> class="text-white" id="underline"<?php } ?>>File d'attente</h4>
 							</a>
 						</li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="?p=home.inscriptionFile">
+                                <h4<?php if($donneesPageCourante["idMenu"] == 3) { ?> class="text-white" id="underline"<?php } ?>>Inscription</h4>
+                            </a>
+                        </li>
 					</ul>
 				</div>
 

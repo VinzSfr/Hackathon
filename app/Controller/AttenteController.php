@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use \App;
 
-class PostsController extends AppController {
+class AttenteController extends AppController {
 	public function __construct() {
 		parent::__construct();
 

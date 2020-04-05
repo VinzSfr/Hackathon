@@ -1,26 +1,18 @@
 <div id="wait-title" class="text-white animated fadeIn">
 	<div id="wait-block">
 
-        <?php if(empty($_POST)): ?>
+        <?php if(isset($_SESSION['file'])): ?>
 
-	        <!-- Ici il y a le code pour rejoindre la file d'attente -->
-		<div class="container">
-			<form class="mr-3 ml-3" method="post">
-				<input type="id_client" class="form-control" placeholder="N° de carte" id="id_client" name="numero">
-				<br>
-				<button type="submit" class="btn btn-primary pl-5 pr-5">Soumettre</button>
-			</form>
-		</div>
-
-		<?php endif; if(!empty($_POST)): ?>
-
-		<!-- Ici il y a le code pour afficher la possition dans la file d'attente -->
-		<h1 class="display-4 text-white">Vous êtes dans la file d'attente en possition</h1>
-		<span class="count display-3 text-white">
+        <h1 class="display-4 text-white">Vous êtes dans la file d'attente en possition</h1>
+        <span class="count display-3 text-white">
 			<?= $_POST['numero']; ?>
 		</span>
 
-		<?php endif; ?>
+        <?php endif; if(!isset($_SESSION['file'])): ?>
+
+            <h1 class="display-4 text-white">Vous devez d'abord vous enregistrer dans la file d'attente ! (tit con va)</h1>
+
+        <?php endif; ?>
 
 	</div>
 </div>

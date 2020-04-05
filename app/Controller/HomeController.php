@@ -43,16 +43,27 @@ class HomeController extends AppController
 		$this->Hydrate("File d'attente", 2, "wait");
 		$donneesPageCourante = $this->donneesPageCourante;
 
-		if(!empty($_POST)) { // Si on a demandé de modifier le contenu
-			$this->checkInputForm();
-
-			$result = $this->CarteDeFidelite->create([
-				'numero' => $_POST['numero']
-			]);
-		}
-
-		$this->render('home.fileAttente', compact('donneesPageCourante')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
+        $this->render('home.fileAttente', compact('donneesPageCourante')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
 	}
+
+	public function inscriptionFile(){
+        $this->Hydrate("Inscription", 3, "signup-fond");
+        $donneesPageCourante = $this->donneesPageCourante;
+
+        if(!empty($_POST)) { // Si on a demandé de modifier le contenu
+            $this->checkInputForm();
+
+            /*$result = $this->CarteDeFidelite->create([
+                'numero' => $_POST['numero']
+            ]);*/
+
+            $NumeroTicket = $this->CallAPI('GET', 'http://6ff02e24.ngrok.io/api/GetNewTicket', false);
+            //$this->render('home.testAPI', compact('donneesPageCourante','NumeroTicket')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories*/
+
+        }
+
+        $this->render('home.inscriptionFile', compact('donneesPageCourante')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
+    }
 
 	private function checkInputForm(){
 		$errors = NULL;
@@ -63,4 +74,33 @@ class HomeController extends AppController
 		if($errors != NULL)
 			header("Location: ?p=home.fileAttente");
 	}
+	/* Fonction d'appel GET POST PUT API */
+    private function CallAPI($method, $url, $data = false)
+    {
+        $curl = curl_init();
+
+        switch ($method)
+        {
+            case "POST":
+                curl_setopt($curl, CURLOPT_POST, 1);
+
+                if ($data)
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                break;
+            case "PUT":
+                curl_setopt($curl, CURLOPT_PUT, 1);
+                break;
+            default:
+                if ($data)
+                    $url = sprintf("%s?%s", $url, http_build_query($data));
+        }
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        $result = curl_exec($curl);
+
+        curl_close($curl);
+        return $result;
+    }
 }
