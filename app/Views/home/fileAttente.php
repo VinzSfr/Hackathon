@@ -34,13 +34,15 @@
 
     $obj = json_decode($results);
     foreach ($obj as $key => $value):
+	    $heureConfirme = date("H:i:s", strtotime($value->{'estConfirme'}));
+	    $heureSorti = date("H:i:s", strtotime($value->{'estSorti'}));
         ?>
 
     <tr>
         <td scope="row"><?= $value->{'idTicket'}; ?></td>
         <td><?= $value->{'fkUser'}; ?></td>
-        <td><?= $value->{'estConfirme'}; ?></td>
-        <td><?= $value->{'estSorti'}; ?></td>
+        <td><?= $heureConfirme; ?></td>
+        <td><?= $heureSorti; ?></td>
     </tr>
 
     <?php endforeach; ?>

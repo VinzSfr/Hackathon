@@ -49,7 +49,7 @@ class HomeController extends AppController
 	}
 
 	public function inscriptionFile(){
-        $this->Hydrate("Inscription", 3, "signup-fond");
+        $this->Hydrate("Inscription", 3, "inscription");
         $donneesPageCourante = $this->donneesPageCourante;
 
         if(!empty($_POST)) { // Si on a demandé de modifier le contenu
