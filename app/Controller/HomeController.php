@@ -44,8 +44,8 @@ class HomeController extends AppController
 		$donneesPageCourante = $this->donneesPageCourante;
 
 		$results = $this->CallAPI('GET', 'http://bca5bf5c.ngrok.io/api/GetAllTickets', false);
-
-        $this->render('home.fileAttente', compact('donneesPageCourante', 'results')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
+		$NumeroTicket = $_SESSION['numeroTicket'];
+        $this->render('home.fileAttente', compact('donneesPageCourante', 'results','NumeroTicket')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
 	}
 
 	public function inscriptionFile(){
@@ -60,6 +60,8 @@ class HomeController extends AppController
             ]);*/
 
             $NumeroTicket = $this->CallAPI('GET', 'http://bca5bf5c.ngrok.io/api/GetNewTicket', false);
+	        $_SESSION['file'] = true;
+	        $_SESSION['numeroTicket'] = $NumeroTicket;
             $this->render('home.inscriptionFile', compact('donneesPageCourante','NumeroTicket')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories*/
 
         }else{

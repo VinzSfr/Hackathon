@@ -5,7 +5,7 @@
 
         <h1 class="display-4 text-white">Vous êtes dans la file d'attente en possition</h1>
         <span class="count display-3 text-white">
-			<?= $_POST['numero']; ?>
+			<?= (string)$NumeroTicket;?>
 		</span>
 
         <?php endif; if(!isset($_SESSION['file'])): ?>
