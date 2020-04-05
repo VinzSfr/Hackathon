@@ -21,7 +21,7 @@
             <h1 class="text-center text-white display-4">Par qui a-t-il été créé ?</h1>
         </div>
         <div class="pt-5 pb-5" id="block-down">
-            <h4 class="text-center text-white">Par six étudiants de touts âges passionnés par l'informatique.</h4>
+            <h4 class="text-center text-white">Par six étudiants de tout âge passionnés par l'informatique.</h4>
         </div>
     </div>
 </div>

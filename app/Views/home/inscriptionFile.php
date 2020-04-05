@@ -15,11 +15,8 @@
         <?php endif; if(!empty($_POST)): ?>
 
         <!-- Ici il y a le code pour afficher la possition dans la file d'attente -->
-        <h1 class="display-4 text-white">Vous êtes le numéro : </h1>
+        <h1 class="display-4 text-white">Vous êtes le numéro : <?= (string)$NumeroTicket;?></h1>
 
-        <a class="count display-3 text-white">
-			<?= $_POST['numero']; ?>
-        </a>
             <div>
                 <a href="?p=home.fileAttente"><button type="submit" class="btn btn-primary pl-5 pr-5">OK</button></a>
             </div>

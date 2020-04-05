@@ -57,12 +57,12 @@ class HomeController extends AppController
                 'numero' => $_POST['numero']
             ]);*/
 
-            $NumeroTicket = $this->CallAPI('GET', 'http://6ff02e24.ngrok.io/api/GetNewTicket', false);
-            //$this->render('home.testAPI', compact('donneesPageCourante','NumeroTicket')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories*/
+            $NumeroTicket = $this->CallAPI('GET', 'http://bca5bf5c.ngrok.io/api/GetNewTicket', false);
+            $this->render('home.inscriptionFile', compact('donneesPageCourante','NumeroTicket')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories*/
 
+        }else{
+            $this->render('home.inscriptionFile', compact('donneesPageCourante')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
         }
-
-        $this->render('home.inscriptionFile', compact('donneesPageCourante')); // prépare le rendu pour la vue en lui passant les articles et la liste des catégories
     }
 
 	private function checkInputForm(){
