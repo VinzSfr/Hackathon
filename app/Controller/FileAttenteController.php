@@ -28,7 +28,7 @@ class FileAttenteController extends AppController
 		$this->render('attente.index');
 	}
 
-	protected function checkInputForm($method){
+	private function checkInputForm($method){
 		$errors = NULL;
 
 		if($_POST['numero'] == NULL)
