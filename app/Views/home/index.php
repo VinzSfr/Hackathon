@@ -13,7 +13,7 @@
             <h1 class="text-center text-white display-4">A quoi sert ce service ?</h1>
         </div>
         <div class="pt-5 pb-5" id="block-down">
-            <h4 class="text-center text-white">Ce service a été créé pour limiter les riques de contamination dans les supermarchés lors de cette période de confinement.</h4>
+            <h4 class="text-center text-white">Ce service a été créé pour limiter les risques de contamination dans les supermarchés lors de cette période de confinement.</h4>
         </div>
     </div>
     <div>

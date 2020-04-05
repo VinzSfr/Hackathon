@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Virus Drive - Accueil</title>
+		<title>Virus Drive - <?= $donneesPageCourante["titre"]; ?></title>
 		<link rel="icon" type="image/png" href="images/logo.png">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -11,12 +11,17 @@
 		<link rel="stylesheet" type="text/css" href="css/mapStyle.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	</head>
-	<body onload = "loadMap()" <!--oncontextmenu="return false;"-->>
-		<header style="background-image: url('images/accueil.jpg');">
+
+	<body onload = "loadMap()" oncontextmenu="return false;"> <!--oncontextmenu="return false;"-->
+
+		<header style="background-image: url('<?= $donneesPageCourante["fond"]; ?>');">
+
 			<nav class="navbar navbar-expand-sm fixed-top navbar-dark">
-				<a class="navbar-brand" href="index.html">
+
+				<a class="navbar-brand" href="index.php">
 					<img src="images/logo-header.png" alt="logo" style="width:150px;">
 				</a>
+
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse_Navbar">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -24,22 +29,24 @@
 					<ul class="navbar-nav bounceInRight animated ml-auto">
 						<li class="nav-item">
 							<a class="nav-link" href="?p=home.index">
-								<h4<?php if($donneesPageCourante["idMenu"] == 0) { ?> class="text-white>" <?php } ?>>Accueil</h4>
+								<h4<?php if($donneesPageCourante["idMenu"] == 0) { ?> class="text-white" id="underline"<?php } ?>>Accueil</h4>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="?p=home.magasin">
-								<h4<?php if($donneesPageCourante["idMenu"] == 1) { ?> class="text-white"<?php } ?>>Magasin</h4>
+								<h4<?php if($donneesPageCourante["idMenu"] == 1) { ?> class="text-white" id="underline"<?php } ?>>Magasin</h4>
 							</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="?p=home.fileAttente">
-								<h4<?php if($donneesPageCourante["idMenu"] == 2) { ?> class="text-white>" <?php } ?>>File d'attente</h4>
+								<h4<?php if($donneesPageCourante["idMenu"] == 2) { ?> class="text-white" id="underline"<?php } ?>>File d'attente</h4>
 							</a>
 						</li>
 					</ul>
 				</div>
+
 			</nav>
+
 			<center>
 				<?= $content; ?>
 
@@ -52,6 +59,7 @@
 				</div>
 			</div>
 		</footer>
+
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/aos.js">
@@ -60,6 +68,7 @@
 		<script type="text/javascript" src="js/main.js"></script>
 		<script src="js/utilMap.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwk2xZDlG-6EFTRTOCwuW8CJjgCby6SPk&callback=initMap" async defer></script>
+
 	</body>
 </html>
 
